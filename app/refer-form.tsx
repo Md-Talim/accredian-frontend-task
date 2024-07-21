@@ -1,5 +1,6 @@
 "use client";
 
+import { Referral } from "@/app/types";
 import { postReferral } from "@/lib/actions";
 import { Box, Container, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
@@ -9,16 +10,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-interface Referral {
-  referrerName: string;
-  referrerEmail: string;
-  referrerPhone?: number;
-  refereeName: string;
-  refereeEmail: string;
-  refereePhone?: number;
-  courseName: string;
-}
 
 const ReferForm = () => {
   const [open, setOpen] = useState(false);

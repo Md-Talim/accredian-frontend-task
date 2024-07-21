@@ -1,14 +1,5 @@
+import { Referral } from "@/app/types";
 import axios from "axios";
-
-interface Referral {
-  referrerName: string;
-  referrerEmail: string;
-  referrerPhone?: number;
-  refereeName: string;
-  refereeEmail: string;
-  refereePhone?: number;
-  courseName: string;
-}
 
 export async function postReferral(referralData: Referral) {
   try {
