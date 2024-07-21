@@ -1,5 +1,6 @@
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import ReferForm from "./refer-form";
 
 const HomePage = () => {
   return (
@@ -7,6 +8,7 @@ const HomePage = () => {
       <Typography variant="h1" component="h1">
         Refer & Earn
       </Typography>
+      <ReferForm />
     </Container>
   );
 };
