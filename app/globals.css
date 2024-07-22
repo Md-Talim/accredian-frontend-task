@@ -6,6 +6,20 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .hero-image {
+    scale: 1.1;
+  }
+}
+
 /* Utility classes */
 .error {
   color: rgb(239 68 68);

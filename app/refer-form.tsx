@@ -2,7 +2,7 @@
 
 import { Referral } from "@/app/types";
 import { postReferral } from "@/lib/actions";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
@@ -39,19 +39,28 @@ const ReferForm = () => {
   };
 
   return (
-    <Container>
-      <Button variant="contained" color="primary" onClick={() => setOpen(true)}>
+    <Box>
+      <Button
+        variant="contained"
+        color="primary"
+        size="large"
+        onClick={() => setOpen(true)}
+      >
         Refer Now
       </Button>
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle variant="h5">Refer a Course</DialogTitle>
-        <DialogContent sx={{ width: "400px" }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <DialogContent>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{ width: "400px", marginInline: "auto" }}
+          >
+            <Stack spacing={2}>
               <Typography variant="h6">Course Details</Typography>
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="text"
                   label="Course Name"
                   {...register("courseName", {
@@ -62,17 +71,16 @@ const ReferForm = () => {
                   <p className="error">{errors.courseName.message}</p>
                 )}
               </Box>
-            </Box>
+            </Stack>
 
             {/* ------- Referrer's Details ------- */}
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 4 }}
-            >
+            <Stack spacing={2} mt={4}>
               <Typography variant="h6">Your Details</Typography>
 
               {/* Referrer Name */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="text"
                   label="Your Name"
                   {...register("referrerName", {
@@ -87,6 +95,7 @@ const ReferForm = () => {
               {/* Referrer Email */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="email"
                   label="Your Email"
                   {...register("referrerEmail", {
@@ -101,6 +110,7 @@ const ReferForm = () => {
               {/* Referrer Phone */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="tel"
                   label="Your Phone No."
                   {...register("referrerPhone", {
@@ -114,17 +124,16 @@ const ReferForm = () => {
                   <p className="error">{errors.referrerPhone.message}</p>
                 )}
               </Box>
-            </Box>
+            </Stack>
 
             {/* ------- Referee's Details ------- */}
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 4 }}
-            >
+            <Stack spacing={2} mt={4}>
               <Typography variant="h6">Referee&apos;s Details</Typography>
 
               {/* Referee's Name */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="text"
                   label="Referee's Name"
                   {...register("refereeName", {
@@ -139,6 +148,7 @@ const ReferForm = () => {
               {/* Referee's Email */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="email"
                   label="Referee's Email"
                   {...register("refereeEmail", {
@@ -153,6 +163,7 @@ const ReferForm = () => {
               {/* Referee's Contact */}
               <Box>
                 <TextField
+                  sx={{ width: "100%" }}
                   type="tel"
                   label="Referee's Phone No."
                   {...register("refereePhone", {
@@ -166,7 +177,7 @@ const ReferForm = () => {
                   <p className="error">{errors.refereePhone.message}</p>
                 )}
               </Box>
-            </Box>
+            </Stack>
 
             <Box
               sx={{
@@ -184,7 +195,7 @@ const ReferForm = () => {
           </form>
         </DialogContent>
       </Dialog>
-    </Container>
+    </Box>
   );
 };
 
